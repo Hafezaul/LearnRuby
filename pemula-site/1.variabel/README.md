@@ -28,3 +28,21 @@ tinggi = 1.75
 aktif = true
 
 ```
+
+## Jenis variabel pada Ruby 
+
+1. Global variabel `$global_var`
+2. Instance variable `@apple`
+3. Class variable `@@apple`
+4. Constant `variabel`
+
+
+# 1. Global variabel 
+
+Variabel global adalah variabel yang dideklarasikan di luar semua fungsi atau blok kode, membuatnya dapat diakses dari mana pun dalam program tanpa batasan lingkup lokal. Namun, berhati-hati ketika menggunakan variabel global karena akan membuat bug pada sistem jika tidak digunakan dengan baik dan pemeliharaan yang baik. 
+
+Sumber <a href="https://www.revou.co/id/kosakata/variabel-global" target="_blank">Apa itu variabel global</a>
+
+# 2. Instance variabel 
+
+
