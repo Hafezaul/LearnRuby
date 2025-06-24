@@ -1,4 +1,4 @@
-nama_orang = [
+=begin nama_orang = [
   "Faris", "Alya", "Raka", "Zahra", "Dimas", "Nina", "Bagas", "Citra", "Ardi", "Maya",
   "Rio", "Lia", "Hadi", "Putri", "Bima", "Salma", "Yusuf", "Nadya", "Iqbal", "Intan",
   "Galih", "Sari", "Reza", "Bella", "Tegar", "Winda", "Rizky", "Aurel", "Andre", "Rani",
@@ -10,3 +10,12 @@ nama_orang = [
 
 urut_nama = nama_orang.uniq!.sort
 p urut_nama
+=end 
+
+nilai2 = 80
+
+unless nilai2 >= 75
+  puts "Kamu tidak lulus."
+else 
+  puts "Kamu Sangat Hebat"
+end
