@@ -12,10 +12,3 @@ urut_nama = nama_orang.uniq!.sort
 p urut_nama
 =end 
 
-nilai2 = 80
-
-unless nilai2 >= 75
-  puts "Kamu tidak lulus."
-else 
-  puts "Kamu Sangat Hebat"
-end
