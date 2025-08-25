@@ -11,4 +11,3 @@
 urut_nama = nama_orang.uniq!.sort
 p urut_nama
 =end 
-
