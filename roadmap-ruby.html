@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ee">
+  <title>Roadmap Belajar Ruby</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #202822;
+      --muted: #68746b;
+      --paper: #f5f3ee;
+      --card: #fffefa;
+      --line: #dfe4da;
+      --green: #236b4d;
+      --green-soft: #e7f2e9;
+      --orange: #d77b45;
+      --shadow: 0 16px 44px rgba(35, 56, 42, .08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.65 "Segoe UI", system-ui, sans-serif;
+    }
+    a { color: var(--green); }
+    .shell { width: min(1080px, calc(100% - 36px)); margin: 0 auto; }
+    header { padding: 58px 0 38px; }
+    .eyebrow {
+      color: var(--green);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 760px; margin: 12px 0; font-size: clamp(2.35rem, 7vw, 4.7rem); line-height: 1.02; letter-spacing: -.055em; }
+    .intro { max-width: 690px; color: var(--muted); font-size: 1.08rem; }
+    .top-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .button.primary { background: var(--green); border-color: var(--green); color: white; }
+    .progress-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px 24px;
+      align-items: center;
+      margin: 12px 0 36px;
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+    .progress-card strong { font-size: 1.05rem; }
+    .progress-meta { color: var(--muted); font-size: .9rem; }
+    .progress-track { grid-column: 1 / -1; height: 9px; overflow: hidden; border-radius: 9px; background: #e8ece5; }
+    .progress-fill { width: 0; height: 100%; border-radius: inherit; background: var(--green); transition: width .2s ease; }
+    .reset {
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: .83rem;
+    }
+    .section-title { margin: 40px 0 16px; font-size: 1.65rem; letter-spacing: -.03em; }
+    .roadmap { display: grid; gap: 16px; }
+    .phase {
+      position: relative;
+      padding: 24px 26px 23px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: 0 8px 24px rgba(35, 56, 42, .045);
+    }
+    .phase-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 18px; align-items: baseline; }
+    .phase h3 { margin: 0; font-size: 1.25rem; }
+    .duration { color: var(--green); font-size: .88rem; font-weight: 750; }
+    .phase p { margin: 9px 0 15px; color: var(--muted); }
+    .tasks { display: grid; gap: 10px; padding: 0; margin: 0; list-style: none; }
+    .tasks label { display: flex; gap: 11px; align-items: flex-start; cursor: pointer; }
+    .tasks input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--green); flex: 0 0 auto; }
+    .tasks input:checked + span { color: #778078; text-decoration: line-through; text-decoration-thickness: 1px; }
+    code {
+      padding: .12em .38em;
+      border-radius: 5px;
+      background: #eef1eb;
+      color: #315b43;
+      font: .91em/1.4 Consolas, "Courier New", monospace;
+    }
+    .milestone {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 15px;
+      margin: 26px 0 48px;
+      padding: 22px;
+      border-radius: 16px;
+      background: var(--green-soft);
+    }
+    .milestone-icon { font-size: 1.35rem; }
+    .milestone p { margin: 5px 0 0; color: #53665a; }
+    footer { padding: 24px 0 42px; color: var(--muted); font-size: .88rem; }
+    @media (max-width: 600px) {
+      header { padding-top: 38px; }
+      .progress-card { padding: 18px; }
+      .phase { padding: 20px; }
+      .section-title { margin-top: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <div class="eyebrow">Belajar lagi, selangkah demi selangkah</div>
+    <h1>Roadmap Ruby<br>untuk mulai kembali.</h1>
+    <p class="intro">Urutan ini dimulai dari menghangatkan kembali dasar yang sudah ada di repo, lalu bergerak ke konsep inti Ruby dan latihan proyek. Checklist tersimpan di browser ini.</p>
+    <nav class="top-links" aria-label="Navigasi">
+      <a class="button primary" href="#roadmap">Mulai roadmap</a>
+      <a class="button" href="catatan-belajar-ruby.html">Lihat catatan materi repo</a>
+      <a class="button" href="pemula-site/">Buka materi lama</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="progress-card" aria-label="Kemajuan belajar">
+      <div>
+        <strong>Kemajuan roadmap</strong>
+        <div class="progress-meta" id="progressText" aria-live="polite">0 dari 0 langkah selesai</div>
+      </div>
+      <button class="reset" id="resetProgress" type="button">Reset checklist</button>
+      <div class="progress-track" role="progressbar" aria-label="Kemajuan roadmap" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </section>
+
+    <h2 class="section-title" id="roadmap">Urutan belajar yang disarankan</h2>
+    <div class="roadmap">
+      <section class="phase">
+        <div class="phase-head"><h3>01 · Pemanasan dan fondasi bahasa</h3><span class="duration">Minggu 1</span></div>
+        <p>Ulangi materi yang sudah pernah disentuh. Fokus memahami perilaku Ruby, bukan menghafal semua method.</p>
+        <ul class="tasks">
+          <li><label><input type="checkbox"><span>Jalankan ulang contoh variabel, tipe dasar, interpolasi string, dan input <code>gets.chomp</code>.</span></label></li>
+          <li><label><input type="checkbox"><span>Latih operator aritmatika, perbandingan, logika (<code>&amp;&amp;</code>, <code>||</code>, <code>!</code>), serta truthiness dan <code>nil</code>.</span></label></li>
+          <li><label><input type="checkbox"><span>Ulangi <code>if</code>/<code>elsif</code>/<code>else</code>, <code>unless</code>, ternary, lalu pelajari <code>case</code>/<code>when</code>.</span></label></li>
+          <li><label><input type="checkbox"><span>Kenali perbedaan method yang mengubah objek dan yang mengembalikan objek baru; pahami bahwa tanda <code>!</code> bukan aturan universal.</span></label></li>
+        </ul>
+      </section>
+
+      <section class="phase">
+        <div class="phase-head"><h3>02 · Loop, method, dan Enumerable</h3><span class="duration">Minggu 2</span></div>
+        <p>Inilah lompatan utama dari contoh satu baris ke program yang bisa dipecah dan diolah.</p>
+        <ul class="tasks">
+          <li><label><input type="checkbox"><span>Latih <code>while</code>, <code>until</code>, <code>times</code>, dan iterasi koleksi dengan <code>each</code>.</span></label></li>
+          <li><label><input type="checkbox"><span>Buat method memakai <code>def</code>, parameter, nilai default, dan nilai balik (return value).</span></label></li>
+          <li><label><input type="checkbox"><span>Pelajari blok, parameter blok, dan perbedaan <code>do...end</code> dengan kurung kurawal.</span></label></li>
+          <li><label><input type="checkbox"><span>Praktikkan <code>map</code>, <code>select</code>, <code>reject</code>, <code>find</code>, <code>any?</code>, dan <code>reduce</code>.</span></label></li>
+        </ul>
+      </section>
+
+      <section class="phase">
+        <div class="phase-head"><h3>03 · Koleksi dan data</h3><span class="duration">Minggu 3</span></div>
+        <p>Perluas penguasaan Array dan Hash dari operasi dasar menjadi pengolahan data.</p>
+        <ul class="tasks">
+          <li><label><input type="checkbox"><span>Pelajari slicing, range, nested collection, sorting, pencarian, dan transformasi Array.</span></label></li>
+          <li><label><input type="checkbox"><span>Latih Hash: iterasi key/value, default value, pengecekan key, penggabungan, dan konversi simbol/string.</span></label></li>
+          <li><label><input type="checkbox"><span>Gunakan Symbol, String, Array, dan Hash secara tepat; pahami kapan akses key mengembalikan <code>nil</code>.</span></label></li>
+          <li><label><input type="checkbox"><span>Buat program rekap nilai atau daftar belanja yang menyimpan banyak data dan menghitung ringkasannya.</span></label></li>
+        </ul>
+      </section>
+
+      <section class="phase">
+        <div class="phase-head"><h3>04 · Pemrograman berorientasi objek</h3><span class="duration">Minggu 4</span></div>
+        <p>Ruby menggunakan objek di seluruh bahasa; pahami cara membentuk objek sendiri.</p>
+        <ul class="tasks">
+          <li><label><input type="checkbox"><span>Buat <code>class</code>, objek, <code>initialize</code>, instance method, dan instance variable.</span></label></li>
+          <li><label><input type="checkbox"><span>Pelajari <code>attr_reader</code>/<code>attr_accessor</code>, enkapsulasi, dan tanggung jawab objek.</span></label></li>
+          <li><label><input type="checkbox"><span>Kenali inheritance, module, dan mixin setelah nyaman dengan class dasar.</span></label></li>
+          <li><label><input type="checkbox"><span>Refactor program rekap menjadi beberapa class sederhana dan tulis cara menjalankannya.</span></label></li>
+        </ul>
+      </section>
+
+      <section class="phase">
+        <div class="phase-head"><h3>05 · Penanganan error dan file</h3><span class="duration">Minggu 5</span></div>
+        <p>Program perlu menghadapi input keliru dan menyimpan data di luar proses yang sedang berjalan.</p>
+        <ul class="tasks">
+          <li><label><input type="checkbox"><span>Pahami exception, <code>begin</code>/<code>rescue</code>/<code>ensure</code>, dan validasi input secara jelas.</span></label></li>
+          <li><label><input type="checkbox"><span>Baca/tulis file dengan blok <code>File.open</code>; praktikkan format teks dan JSON/CSV.</span></label></li>
+          <li><label><input type="checkbox"><span>Gunakan <code>require</code> untuk memecah kode ke beberapa file dan kenali struktur folder sederhana.</span></label></li>
+          <li><label><input type="checkbox"><span>Tambahkan penyimpanan data ke program rekap, lalu uji kondisi file belum ada atau data tidak valid.</span></label></li>
+        </ul>
+      </section>
+
+      <section class="phase">
+        <div class="phase-head"><h3>06 · Tooling Ruby dan testing</h3><span class="duration">Minggu 6</span></div>
+        <p>Bangun kebiasaan yang membuat kode mudah dijalankan, dicek, dan dirawat.</p>
+        <ul class="tasks">
+          <li><label><input type="checkbox"><span>Periksa versi Ruby yang terpasang dan jalankan file dari terminal.</span></label></li>
+          <li><label><input type="checkbox"><span>Pelajari RubyGems, Bundler, <code>Gemfile</code>, dan <code>bundle exec</code>.</span></label></li>
+          <li><label><input type="checkbox"><span>Tulis unit test dengan Minitest atau RSpec; mulai dari menguji method dan kasus batas.</span></label></li>
+          <li><label><input type="checkbox"><span>Gunakan RuboCop sebagai pengenal gaya kode setelah program berjalan dan test tersedia.</span></label></li>
+        </ul>
+      </section>
+
+      <section class="phase">
+        <div class="phase-head"><h3>07 · Proyek akhir dan jalur lanjutan</h3><span class="duration">Minggu 7–8</span></div>
+        <p>Pilih proyek kecil sampai selesai, kemudian tentukan spesialisasi sesuai tujuanmu.</p>
+        <ul class="tasks">
+          <li><label><input type="checkbox"><span>Selesaikan CLI pengelola tugas/buku/keuangan: tambah, tampilkan, ubah, hapus, simpan, dan validasi data.</span></label></li>
+          <li><label><input type="checkbox"><span>Tambahkan README, contoh penggunaan, test untuk fungsi penting, dan commit kecil yang jelas.</span></label></li>
+          <li><label><input type="checkbox"><span>Jika tertarik web, lanjutkan HTTP, routing, database/SQL, lalu Rails; jika otomasi, pelajari API dan skrip.</span></label></li>
+        </ul>
+      </section>
+    </div>
+
+    <aside class="milestone">
+      <div class="milestone-icon" aria-hidden="true">✦</div>
+      <div><strong>Patokan selesai</strong><p>Kamu bisa membuat program CLI kecil dari awal, menjelaskan alur datanya, menangani input salah, menyimpan data, dan menjalankan test tanpa menyalin tutorial langkah demi langkah.</p></div>
+    </aside>
+  </main>
+
+  <footer class="shell">Saran ritme: 30–60 menit per sesi, 4–5 sesi per minggu. Ubah durasi sesuai waktu dan pengalamanmu; yang penting rutin menulis kode.</footer>
+  <script>
+    (() => {
+      const storageKey = "learnruby-roadmap-v1";
+      const boxes = [...document.querySelectorAll('.tasks input[type="checkbox"]')];
+      const fill = document.getElementById("progressFill");
+      const text = document.getElementById("progressText");
+      const bar = document.querySelector('[role="progressbar"]');
+      const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
+      boxes.forEach((box, index) => {
+        box.checked = saved[index] === true;
+        box.addEventListener("change", saveProgress);
+      });
+      document.getElementById("resetProgress").addEventListener("click", () => {
+        boxes.forEach(box => { box.checked = false; });
+        saveProgress();
+      });
+      function saveProgress() {
+        const done = boxes.filter(box => box.checked).length;
+        const percent = boxes.length ? Math.round(done / boxes.length * 100) : 0;
+        localStorage.setItem(storageKey, JSON.stringify(boxes.map(box => box.checked)));
+        fill.style.width = `${percent}%`;
+        text.textContent = `${done} dari ${boxes.length} langkah selesai · ${percent}%`;
+        bar.setAttribute("aria-valuenow", String(percent));
+      }
+      saveProgress();
+    })();
+  </script>
+</body>
+</html>
